@@ -1,3 +1,6 @@
+const request = require('supertest');
+const app = require('./app');
+
 describe('Express App Tests', () => {
 
     //test the main route
@@ -11,7 +14,7 @@ describe('Express App Tests', () => {
         });
 
         it('should return text/html content type', async () => {
-            const response = await response(app)
+            const response = await request(app)
             .get('/')
             .expect(200);
 
